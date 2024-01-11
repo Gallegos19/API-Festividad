@@ -12,11 +12,11 @@ export const getUsuario = () => {
       .catch((err) => reject(err));
   });
 };
-export const getbyIdUsuario = (id) => {
+export const getbyCorreoUsuario = (correo) => {
   return new Promise((resolve, reject) => {
-    const consQuery = "SELECT * FROM usuario where idUsuario = ?";
+    const consQuery = "SELECT * FROM usuario where correo = ? limit 1";
     database
-      .execute(consQuery, [id])
+      .execute(consQuery, [correo])
       .then((result) => {
        
         resolve(result[0]);
